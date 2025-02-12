@@ -25,12 +25,16 @@ body{
     background-color: var(--blue-700);
 }
 
+.main2{
+    width: 100%;
+}
+
 header{
     display: flex;
     align-items: center;
     background-color: var(--blue-800);
-    justify-content: space-betweens;
-    padding: 1rem;
+    justify-content: space-between;
+    padding: 1.5rem;
     color: white;
 }
 
@@ -41,6 +45,10 @@ header .left-side{
     width: 45%;
 }
 
+header .left-side .logo{
+    display: none;
+}
+
 header .right-side{
     display: flex;
     align-items: center;
@@ -49,12 +57,14 @@ header .right-side{
     margin-right: 20px;
 }
 
-header .left-side .logo{
+.logo{
     display: flex;
     align-items: center;
+    padding: 1rem;
+    color: white;
 }
 
-header .left-side .imagem{
+.imagem{
     width: 55px;
     height: 54px;
     margin-right: 20px;
@@ -84,10 +94,16 @@ main{
     display: flex;
 }
 
+.ghost{
+    width: 300px;
+    height: 100vh;
+}
+
 .side-bar{
     min-width: 20%;
     height: 100vh;
     background-color: var(--blue-800);
+    position: fixed;
 }
 
 .side-bar nav{
@@ -110,4 +126,14 @@ main{
     margin-right: 15px;
     width: 18px;
     height: 18px;
+}
+
+.mobile-modal-button{
+    display: none;
+}
+
+.mobile-modal-button img{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
 }

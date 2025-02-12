@@ -6,8 +6,8 @@
     cursor: pointer;
     width: 300px;
     max-height: 250px;
-    margin-top: 50px;
-    margin-left: 50px;
+    margin-top: 3.125rem;
+    margin-left: 3.125rem;
     color: var(--white);
     background-color: var(--blue-800);
     padding: 20px;
@@ -22,11 +22,11 @@
 }
 
 .appointment img{
-    width: 50px;
-    height: 50px;
+    width: 3.125rem;
+    height: 3.125rem;
     background-color: var(--white);
     padding: 5px;
-    border-radius: 50px;
+    border-radius: 3.125rem;
     margin-bottom: 10px;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .appointment .pet-info p{
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 100;
 }
 
@@ -51,8 +51,8 @@
 
 .appointment .buttons button{
     border: none;
-    width: 120px;
-    font-size: 12px;
+    width: 7.5rem;
+    font-size: 0.75rem;
     padding: 3px;
     border-radius: 50px;
 }
@@ -72,7 +72,7 @@
 
 .appointment .date-info span{
     font-weight: 300;
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
 .add-pet{
