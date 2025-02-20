@@ -94,6 +94,10 @@ main{
     display: flex;
 }
 
+.invisible{
+    opacity: 0.5;
+}
+
 .ghost{
     width: 300px;
     height: 100vh;

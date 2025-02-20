@@ -1,5 +1,7 @@
 const listPetCard = document.querySelectorAll(".pet-card");
 const addAppointmentButton = document.querySelector(".add-appointment");
+const main = document.querySelector("main");
+
 document.addEventListener("DOMContentLoaded", renderPetCards);
 function renderPetCards() {
   // Seleciona o container
@@ -116,12 +118,12 @@ function renderPetCards() {
       appointmentsRecord.classList.add("record");
 
       // Adicionar consultas ao histórico
-      for (let i = 0; i < 7; i++) {
-        const appointment = document.createElement("p");
-        appointment.innerHTML =
-          "dd/mm/aaaaa - (consulta de *********) <span>Dr.Shinizi</span>";
-        appointmentsRecord.appendChild(appointment);
-      }
+      // for (let i = 0; i < 7; i++) {
+      //   const appointment = document.createElement("p");
+      //   appointment.innerHTML =
+      //     "dd/mm/aaaaa - (consulta de *********) <span>Dr.Shinizi</span>";
+      //   appointmentsRecord.appendChild(appointment);
+      // }
 
       recordAppointments.appendChild(appointmentsRecord);
       recordOfPet.appendChild(recordAppointments);
@@ -138,11 +140,11 @@ function renderPetCards() {
       vaccinesRecord.classList.add("record");
 
       // Adicionar vacinas ao histórico
-      for (let i = 0; i < 7; i++) {
-        const vaccine = document.createElement("p");
-        vaccine.textContent = "Vacina da gripe dd/mm/aaaaa";
-        vaccinesRecord.appendChild(vaccine);
-      }
+      // for (let i = 0; i < 7; i++) {
+      //   const vaccine = document.createElement("p");
+      //   vaccine.textContent = "Vacina da gripe dd/mm/aaaaa";
+      //   vaccinesRecord.appendChild(vaccine);
+      // }
 
       recordVaccines.appendChild(vaccinesRecord);
       recordOfPet.appendChild(recordVaccines);
@@ -159,11 +161,11 @@ function renderPetCards() {
       allergiesRecord.classList.add("record");
 
       // Adicionar alergias ao histórico
-      for (let i = 0; i < 7; i++) {
-        const allergy = document.createElement("p");
-        allergy.textContent = "Alergia a *****";
-        allergiesRecord.appendChild(allergy);
-      }
+      // for (let i = 0; i < 7; i++) {
+      //   const allergy = document.createElement("p");
+      //   allergy.textContent = "Alergia a *****";
+      //   allergiesRecord.appendChild(allergy);
+      // }
 
       allergiesSection.appendChild(allergiesRecord);
       recordOfPet.appendChild(allergiesSection);
@@ -239,9 +241,12 @@ function renderPetCards() {
       // Adicionar o modal-agenda ao corpo do documento
       document.body.appendChild(modalDashboard);
 
+      main.classList.add("invisible");
+
       const modalCloseButton = modalDashboard.querySelector(".close");
       modalCloseButton.addEventListener("click", () => {
         modalDashboard.remove();
+        main.classList.remove("invisible");
       });
     });
     container.appendChild(card);

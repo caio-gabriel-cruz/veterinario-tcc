@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const addProfilePet = document.querySelector(".add-pet");
   const modalAddProfilePet = document.querySelector(".modal-add-pet-profile");
+  const main = document.querySelector("main");
   const modalAddProfilePetClose = document.querySelector(
     ".modal-add-pet-profile .close"
   );
@@ -10,11 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Exibe o modal ao clicar no botão de adicionar pet
   addProfilePet.addEventListener("click", () => {
     modalAddProfilePet.style.display = "block";
+    main.classList.add("invisible");
   });
 
   // Fecha o modal quando clica no "X"
   modalAddProfilePetClose.addEventListener("click", () => {
     modalAddProfilePet.style.display = "none";
+    main.classList.remove("invisible");
   });
 
   // FFuncao carrega os dados dos cards
@@ -145,6 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // fecha eu acho
     formAddPet.reset();
     modalAddProfilePet.style.display = "none";
+    main.classList.remove("invisible");
   });
 
   // carrega apos carregar a pagina

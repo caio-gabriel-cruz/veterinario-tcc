@@ -8,6 +8,7 @@
     background-color: var(--blue-800);
     color: var(--white);
     padding: 30px;
+    opacity: 1 !important;
 }
 
 .modal-dashboard .close{
