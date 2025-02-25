@@ -107,7 +107,8 @@ main{
     min-width: 20%;
     height: 100vh;
     background-color: var(--blue-800);
-    position: fixed;
+    position: sticky;
+    top: 0;
 }
 
 .side-bar nav{

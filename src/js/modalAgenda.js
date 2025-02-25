@@ -1,4 +1,6 @@
 //tem que usar por caus do LS
+import { validaNome } from "../utils/validaNome.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const addProfilePet = document.querySelector(".add-pet");
   const modalAddProfilePet = document.querySelector(".modal-add-pet-profile");
@@ -10,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Exibe o modal ao clicar no botão de adicionar pet
   addProfilePet.addEventListener("click", () => {
+    console.log("click");
     modalAddProfilePet.style.display = "block";
     main.classList.add("invisible");
   });
@@ -125,23 +128,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const dataConsulta = document.getElementById("dataConsulta").value;
     const doutor = document.getElementById("doutor").value;
 
-    // validacao de nome do tutor
-    if (/\d/.test(tutorNome)) {
-      return console.log("Campo contém caracteres inválidos");
-    } else if (tutorNome.length < 3) {
-      return console.log("Campo vazio");
-    } else {
-      console.log("Nome válido");
-    }
+    const possuiNomePetValidado = validaNome(petNome);
+    const possuiNomeTutorValidado = validaNome(tutorNome);
 
-    // validacao de nome do pet
-    if (/\d/.test(petNome)) {
-      return console.log("Campo contém caracteres inválidos");
-    } else if (tutorNome.length < 2) {
-      return console.log("Campo vazio");
-    } else {
-      console.log("Nome válido");
-    }
+    if (!possuiNomePetValidado || !possuiNomeTutorValidado) return null;
 
     // Salva os dados no LS
     salvaDados({
