@@ -1,6 +1,3 @@
-//tem que usar por caus do LS
-import { validaNome } from "../utils/validaNome.js";
-
 document.addEventListener("DOMContentLoaded", function () {
   const addProfilePet = document.querySelector(".add-pet");
   const modalAddProfilePet = document.querySelector(".modal-add-pet-profile");
@@ -23,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     main.classList.remove("invisible");
   });
 
-  // FFuncao carrega os dados dos cards
+  // Função carrega os dados dos cards
   function carregaDados() {
     const appointmentsList = document.querySelector(".appointments-list");
     if (!appointmentsList) return; // Verifica se o elemento existe
@@ -32,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Recupera os cards
     const pets = JSON.parse(localStorage.getItem("pets")) || [];
 
-    //cria os cards
+    // Cria os cards
     pets.forEach((pet) => {
       const appointmentCard = document.createElement("div");
       appointmentCard.classList.add("appointment");
@@ -109,12 +106,79 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("pets", JSON.stringify(pets));
   }
 
-  // butao sumbmit
+  // Função para validar os nomes
+  const validaNome = (nome) => {
+    if (/\d/.test(nome)) {
+      console.log("Campo nome contém caracteres inválidos");
+      return null;
+    }
+
+    if (nome.length < 3) {
+      console.log("Campo nome vazio");
+      return null;
+    }
+
+    return nome;
+  };
+
+  // Função para validar o CPF
+  function validaCpf(cpfValue) {
+    if (cpfValue.length !== 11) {
+      console.log("CPF inválido");
+      return false;
+    }
+
+    function proximoDigitoVerificador(cpfIncompleto) {
+      let somatoria = 0;
+
+      for (let i = 0; i < cpfIncompleto.length; i++) {
+        let digitoAtual = cpfIncompleto.charAt(i);
+        let constante = cpfIncompleto.length + 1 - i;
+        somatoria += Number(digitoAtual) * constante;
+      }
+      const resto = somatoria % 11;
+
+      return resto < 2 ? "0" : (11 - resto).toString();
+    }
+
+    let primeiroDigitoVerificador = proximoDigitoVerificador(
+      cpfValue.substring(0, 9)
+    );
+    let segundoDigitoVerificador = proximoDigitoVerificador(
+      cpfValue.substring(0, 9) + primeiroDigitoVerificador
+    );
+
+    let cpfCorreto =
+      cpfValue.substring(0, 9) +
+      primeiroDigitoVerificador +
+      segundoDigitoVerificador;
+
+    if (cpfValue !== cpfCorreto) {
+      console.log("CPF inválido");
+      return false;
+    } else {
+      console.log("CPF válido");
+      return true;
+    }
+  }
+  const especies = document.querySelectorAll(".especie");
+  let especieSelected = 0;
+
+  especies.forEach((especie) => {
+    especie.addEventListener("click", () => {
+      especies.forEach((especie) => {
+        especie.classList.remove("selected");
+      });
+      especie.classList.toggle("selected");
+      especieSelected = especie.id;
+    });
+  });
+
+  // Botão submit
   formAddPet.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // dados input
-    const especie = document.getElementById("especie").value;
+    // Dados input
     const tutorNome = document.getElementById("tutorNome").value;
     const cpf = document.getElementById("cpf").value;
     const telefone = document.getElementById("telefone").value;
@@ -128,14 +192,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const dataConsulta = document.getElementById("dataConsulta").value;
     const doutor = document.getElementById("doutor").value;
 
+    // valida especie
+    if (especieSelected === 0) {
+      console.log("sem selecionar");
+      event.preventDefault;
+      return null;
+    }
+
+    console.log(especieSelected);
+
     const possuiNomePetValidado = validaNome(petNome);
     const possuiNomeTutorValidado = validaNome(tutorNome);
 
     if (!possuiNomePetValidado || !possuiNomeTutorValidado) return null;
 
+    // Valida o CPF
+    if (!validaCpf(cpf)) {
+      console.log("CPF inválido");
+      return;
+    }
+    especies.forEach((especie) => {
+      especie.classList.remove("selected");
+    });
+
     // Salva os dados no LS
     salvaDados({
-      especie,
+      especieSelected,
       tutorNome,
       cpf,
       telefone,
@@ -150,15 +232,15 @@ document.addEventListener("DOMContentLoaded", function () {
       doutor,
     });
 
-    // carrega/atualiza os dados(eu acho)
+    // Carrega/atualiza os dados
     carregaDados();
 
-    // fecha eu acho
+    // Fecha o modal
     formAddPet.reset();
     modalAddProfilePet.style.display = "none";
     main.classList.remove("invisible");
   });
 
-  // carrega apos carregar a pagina
+  // Carrega após carregar a página
   carregaDados();
 });

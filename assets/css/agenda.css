@@ -28,6 +28,7 @@
     padding: 5px;
     border-radius: 3.125rem;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .appointment .pet-info h2{

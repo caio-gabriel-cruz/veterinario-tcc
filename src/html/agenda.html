@@ -117,7 +117,13 @@
     <div class="modal-add-pet-profile">
         <div class="close">X</div>
         <div class="profile-pet-modal">
-            <input id="especie" type="text" placeholder="Selecione a espécie do pet">
+            <p>Especies:</p>
+            <div class="especies">
+                <img class="especie" id="especieGato" src="../../assets/images/cat.png" alt="Gato">
+                <img class="especie" id="especieCachorro" src="../../assets/images/dog.png" alt="Cachorro">
+                <img class="especie" id="especieHamster" src="../../assets/images/hamster.png" alt="Hamster">
+                <img class="especie" id="especiePassaro" src="../../assets/images/bird.png" alt="Passaro">
+            </div>
         </div>
         <form action="">
             <div class="appointment-form">
@@ -127,11 +133,11 @@
                 </div>
                 <div>
                     <label for="">CPF</label>
-                    <input type="text" id="cpf" value="">
+                    <input type="number" id="cpf" value="">
                 </div>
                 <div>
                     <label for="">Telefone</label>
-                    <input type="text" id="telefone" value="">
+                    <input type="number" id="telefone" value="">
                 </div>
                 <div>
                     <label for="">Endereço</label>
@@ -145,7 +151,7 @@
                 </div>
                 <div>
                     <label for="">Ano de nascimento</label>
-                    <input type="text" id="petAnoNascimento" value="">
+                    <input type="date" id="petAnoNascimento" value="">
                 </div>
                 <div>
                     <label for="">Raça</label>
@@ -181,8 +187,8 @@
 
     </div>
 
-    <script src="../js/modalAgenda.js" type="module"></script>
-    <script src="../js/sideBar.js" type="module"></script>
+    <script src="../js/modalAgenda.js"></script>
+    <script src="../js/sideBar.js"></script>
 </body>
 
 </html>

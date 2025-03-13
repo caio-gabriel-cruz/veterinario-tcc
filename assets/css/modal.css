@@ -161,6 +161,30 @@
     padding: 20px;
 }
 
+.modal-add-pet-profile .profile-pet-modal .especies{
+    display: flex;
+    margin-left: 20px;
+}
+
+.modal-add-pet-profile .profile-pet-modal p{
+    margin-bottom: 20px;
+}
+
+.modal-add-pet-profile .profile-pet-modal .especies img{
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--white);
+    padding: 10px;
+    border-radius: 3.125rem;
+    margin-right: 20px;
+    cursor: pointer;
+
+}
+
+.modal-add-pet-profile .profile-pet-modal .especies img.selected{
+    border: 3px solid orange;  
+}
+
 .modal-add-pet-profile form{
     display: flex;
     margin-top: 30px;
