@@ -218,7 +218,7 @@
     padding: 3px;
     border-radius: 8px;
     border: 1px solid var(--gray-500);
-    background-color: var(--blue-800;
+    background-color: var(--blue-800);
     color: var(--white);
     transition: 0.2s;
 }
