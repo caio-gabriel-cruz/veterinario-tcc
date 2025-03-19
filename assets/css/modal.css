@@ -211,19 +211,20 @@
 
 .modal-add-pet-profile form .appointment-form button{
     margin-top: 50px;
-    margin-bottom: 20px;
-    border: none;
+    margin-bottom: 10px;
     width: 120px;
     height: 30px;
     font-size: 16px;
     padding: 3px;
     border-radius: 8px;
-    background-color: orange;
+    border: 1px solid var(--gray-500);
+    background-color: var(--blue-800;
+    color: var(--white);
     transition: 0.2s;
 }
 
 .modal-add-pet-profile form .appointment-form button:hover{
-    background-color: #cf7c23;
+    background-color: (--gray-500);
 }
 
 
